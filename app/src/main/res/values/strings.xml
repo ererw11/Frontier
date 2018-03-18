@@ -46,7 +46,7 @@
     <string name="gallons_not_entered">Gallons Not Entered</string>
     <string name="gas_cost">Gas Cost</string>
     <string name="gas_station_database_name">gas_station</string>
-    <string name="google_places_key">AIzaSyBUBtfyXc4BxXUparCVck0zmpMrEj7Bbsg</string>
+    <string name="google_places_key">Enter_Google_Place_API_Key</string>
     <string name="item_purchased">Item Purchased</string>
     <string name="location_address">Location Address</string>
     <string name="lodging">Lodging</string>
@@ -66,7 +66,7 @@
     <string name="no_location_selected">No Location Selected</string>
     <string name="no_mile_per_gallon">--</string>
     <string name="no_miles_yet">--.--</string>
-    <string name="no_price_yet">$ --.--</string>
+    <string name="no_price_yet">$ —.--</string>
     <string name="no_trip_data">There is no trip data logged yet,\n why not log something now?</string>
     <string name="no_trip_title_expense">Please name trip before adding an expense</string>
     <string name="no_trip_title_fill_up">Please name trip before adding a fill Up</string>
