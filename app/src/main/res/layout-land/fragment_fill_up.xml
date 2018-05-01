@@ -70,7 +70,6 @@
             android:background="@color/colorPrimary"/>
 
         <LinearLayout
-            android:id="@+id/details_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
@@ -85,7 +84,8 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/details_layout_height"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:baselineAligned="false">
 
                 <LinearLayout
                     android:layout_width="0dp"
@@ -137,7 +137,8 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/details_layout_height"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:baselineAligned="false">
 
                 <LinearLayout
                     android:layout_width="0dp"
@@ -178,7 +179,6 @@
                         tools:ignore="NestedWeights">
 
                         <TextView
-                            android:id="@+id/fill_up_cost_header"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="@dimen/margin_extra_small"
@@ -208,7 +208,6 @@
                         android:orientation="horizontal">
 
                         <TextView
-                            android:id="@+id/fill_up_mpg_header"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="@dimen/margin_extra_small"
@@ -239,7 +238,8 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:baselineAligned="false">
 
                 <LinearLayout
                     android:layout_width="0dp"

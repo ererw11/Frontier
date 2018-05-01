@@ -63,39 +63,48 @@ public class FillUpFragment extends Fragment
     private static final int PLACE_AUTOCOMPLETE_REQUEST_CODE = 0;
 
     @BindView(R.id.fill_up_location)
+    private
     TextView mFillUpLocationTextView;
     @BindView(R.id.enter_location_header)
     TextView mFillUpLocationHeader;
     @BindView(R.id.fill_up_mileage)
+    private
     EditText mFillUpTripMileageField;
     @BindView(R.id.fill_up_price_per_gallon)
+    private
     EditText mFillUpPricePerGallonField;
     @BindView(R.id.fill_up_total_gallons)
+    private
     EditText mFillUpTotalGallonsField;
     @BindView(R.id.fill_up_date)
+    private
     TextView mFillUpDateTextView;
     @BindView(R.id.share_fill_up_button)
+    private
     ImageButton mFillUpShareFillUpButton;
     @BindView(R.id.fill_up_cost)
+    private
     TextView mFillUpTotalCostTextView;
     @BindView(R.id.fill_up_mpg)
+    private
     TextView mFillUpMilesPerGallonTextView;
     @BindView(R.id.fill_up_address)
+    private
     TextView mFillUpAddressTextView;
     @BindView(R.id.save_fill_up_fab)
+    private
     FloatingActionButton mFloatingActionButton;
     @BindView(R.id.fill_up_toolbar)
+    private
     Toolbar mFillUpToolbar;
 
     private FillUp mFillUp;
     private String mPlaceId;
     private String mWidgetFillUpLocation;
     private Callbacks mCallbacks;
-    private String mTripId;
     private GoogleApiClient mGoogleApiClient;
     private FirebaseAuth mFirebaseAuth;
     private FirebaseAuth.AuthStateListener mAuthStateListener;
-    private FirebaseDatabase mFirebaseDatabase;
     private DatabaseReference mDatabaseReference;
 
     public static FillUpFragment newFillUpInstance(FillUp fillUp, String tripId) {
@@ -114,9 +123,9 @@ public class FillUpFragment extends Fragment
 
         mFillUp = new FillUp();
         mFillUp = (FillUp) getArguments().getSerializable(ARG_FILL_UP);
-        mTripId = getArguments().getString(ARG_TRIP_ID);
+        String tripId = getArguments().getString(ARG_TRIP_ID);
         //TODO = remove Log
-        Log.i(TAG, mTripId);
+        Log.i(TAG, tripId);
 
         mGoogleApiClient = new GoogleApiClient
                 .Builder(getContext())
@@ -134,11 +143,11 @@ public class FillUpFragment extends Fragment
                 TripUtils.confirmSignedIn(getActivity(), user);
             }
         };
-        mFirebaseDatabase = FirebaseDatabase.getInstance();
-        mDatabaseReference = mFirebaseDatabase.getReference(
+        FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
+        mDatabaseReference = firebaseDatabase.getReference(
                 mFirebaseAuth.getUid())
                 .child(getString(R.string.trip_details_db_title))
-                .child(mTripId)
+                .child(tripId)
                 .child("fillUpList");
     }
 
@@ -245,7 +254,7 @@ public class FillUpFragment extends Fragment
     }
 
     // Use the Google Place Widget to select the location of the Fill Up
-    public void findPlace() {
+    private void findPlace() {
         try {
             Intent intent =
                     new PlaceAutocomplete.IntentBuilder(PlaceAutocomplete.MODE_OVERLAY)
@@ -260,18 +269,22 @@ public class FillUpFragment extends Fragment
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (requestCode == PLACE_AUTOCOMPLETE_REQUEST_CODE) {
-            if (resultCode == RESULT_OK) {
-                Place place = PlaceAutocomplete.getPlace(getActivity(), data);
-                mFillUpLocationTextView.setText(place.getName());
-                mFillUpAddressTextView.setText(place.getAddress());
-                mPlaceId = place.getId();
-                mWidgetFillUpLocation = place.getName().toString();
-                Log.i(TAG, "Place: " + place.getName());
-            } else if (resultCode == PlaceAutocomplete.RESULT_ERROR) {
-                Status status = PlaceAutocomplete.getStatus(getActivity(), data);
-                Log.i(TAG, status.getStatusMessage());
-            } else if (resultCode == RESULT_CANCELED) {
-                // The user canceled the operation.
+            switch (resultCode) {
+                case RESULT_OK:
+                    Place place = PlaceAutocomplete.getPlace(getActivity(), data);
+                    mFillUpLocationTextView.setText(place.getName());
+                    mFillUpAddressTextView.setText(place.getAddress());
+                    mPlaceId = place.getId();
+                    mWidgetFillUpLocation = place.getName().toString();
+                    Log.i(TAG, "Place: " + place.getName());
+                    break;
+                case PlaceAutocomplete.RESULT_ERROR:
+                    Status status = PlaceAutocomplete.getStatus(getActivity(), data);
+                    Log.i(TAG, status.getStatusMessage());
+                    break;
+                case RESULT_CANCELED:
+                    // The user canceled the operation.
+                    break;
             }
         }
     }
@@ -367,7 +380,7 @@ public class FillUpFragment extends Fragment
     }
 
     // Add the place name to the Place EditText and the address to the Address TextView
-    public void getPlaceByIdAndDisplay(String placeId) {
+    private void getPlaceByIdAndDisplay(String placeId) {
         if (placeId != null) {
             Places.GeoDataApi.getPlaceById(mGoogleApiClient, placeId)
                     .setResultCallback(new ResultCallback<PlaceBuffer>() {
@@ -389,7 +402,7 @@ public class FillUpFragment extends Fragment
     }
 
     // Update the Total Cost and Miles Per Gallon fields
-    public void updateFillUpData(FillUp fillUp) {
+    private void updateFillUpData(FillUp fillUp) {
         mFillUpMilesPerGallonTextView.setText(TripUtils.milesPerGallon(fillUp));
         mFillUpTotalCostTextView.setText(TripUtils.getTotalCost(fillUp));
     }

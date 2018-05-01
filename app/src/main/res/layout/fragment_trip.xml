@@ -24,7 +24,6 @@
                 android:layout_marginBottom="@dimen/margin_small">
 
                 <LinearLayout
-                    android:id="@+id/current_trip_title"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="@dimen/margin_medium"
@@ -32,7 +31,6 @@
                     android:orientation="vertical">
 
                     <android.support.constraint.ConstraintLayout
-                        android:id="@+id/trip_title_layout"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content">
 
@@ -58,7 +56,8 @@
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintEnd_toStartOf="@+id/title_save"
                             app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toBottomOf="@+id/trip_title_header_text_view"/>
+                            app:layout_constraintTop_toBottomOf="@+id/trip_title_header_text_view"
+                            android:inputType=""/>
 
                         <ImageView
                             android:id="@+id/title_save"
@@ -86,7 +85,6 @@
                 android:layout_marginBottom="@dimen/margin_small">
 
                 <LinearLayout
-                    android:id="@+id/current_trip_fill_up_and_expenses"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="@dimen/margin_medium"
@@ -196,7 +194,6 @@
                 android:layout_marginBottom="@dimen/margin_small">
 
                 <LinearLayout
-                    android:id="@+id/current_trip_gas_data_layout"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="@dimen/margin_medium"
@@ -204,7 +201,6 @@
                     android:orientation="vertical">
 
                     <android.support.constraint.ConstraintLayout
-                        android:id="@+id/miles_driven_layout"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content">
 
@@ -237,7 +233,6 @@
                     </android.support.constraint.ConstraintLayout>
 
                     <android.support.constraint.ConstraintLayout
-                        android:id="@+id/miles_per_gallon_layout"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content">
 
@@ -279,7 +274,6 @@
                 android:layout_marginBottom="@dimen/margin_small">
 
                 <LinearLayout
-                    android:id="@+id/current_trip_gas_cost_data_layout"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="@dimen/margin_medium"
@@ -287,7 +281,6 @@
                     android:orientation="vertical">
 
                     <android.support.constraint.ConstraintLayout
-                        android:id="@+id/gas_cost_layout"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent">
 
@@ -320,7 +313,6 @@
                     </android.support.constraint.ConstraintLayout>
 
                     <android.support.constraint.ConstraintLayout
-                        android:id="@+id/price_per_fill_up_layout"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content">
 
@@ -363,7 +355,6 @@
                 android:layout_marginBottom="@dimen/margin_small">
 
                 <LinearLayout
-                    android:id="@+id/current_trip_expense_data_layout"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="@dimen/margin_medium"
@@ -371,7 +362,6 @@
                     android:orientation="vertical">
 
                     <android.support.constraint.ConstraintLayout
-                        android:id="@+id/expense_costs_layout"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent">
 
@@ -404,7 +394,6 @@
                     </android.support.constraint.ConstraintLayout>
 
                     <android.support.constraint.ConstraintLayout
-                        android:id="@+id/costs_per_expense_layout"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content">
 

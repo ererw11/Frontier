@@ -43,12 +43,16 @@ public class TripListFragment extends Fragment {
     private static final int RC_SIGN_IN = 11;
 
     @BindView(R.id.trip_list_toolbar)
+    private
     Toolbar mTripListToolBar;
     @BindView(R.id.trip_recycler_view)
+    private
     RecyclerView mTripRecyclerView;
     @BindView(R.id.trip_list_no_logs_linear_layout)
+    private
     LinearLayout mNoTripsLoggedLinearLayout;
     @BindView(R.id.add_trip_fab)
+    private
     FloatingActionButton mAddTripFloatingActionButton;
 
     private ArrayList<Trip> tripList;
@@ -131,17 +135,7 @@ public class TripListFragment extends Fragment {
         return view;
     }
 
-    @Override
-    public void onResume() {
-        super.onResume();
-    }
-
-    @Override
-    public void onPause() {
-        super.onPause();
-    }
-
-    public void updateUI(String userId) {
+    private void updateUI(String userId) {
         attachDatabaseReference(userId);
 
         tripList.clear();
@@ -194,12 +188,12 @@ public class TripListFragment extends Fragment {
     private class TripHolder extends RecyclerView.ViewHolder
             implements View.OnClickListener {
 
-        public int position;
-        TextView mTripTitleTextView;
-        TextView mNumberOfFillUps;
-        TextView mNumberOFExpenses;
+        int position;
+        final TextView mTripTitleTextView;
+        final TextView mNumberOfFillUps;
+        final TextView mNumberOFExpenses;
 
-        public TripHolder(View itemView) {
+        TripHolder(View itemView) {
             super(itemView);
             mTripTitleTextView = itemView.findViewById(R.id.list_trip_title);
             mNumberOfFillUps = itemView.findViewById(R.id.list_trip_fill_up_count);
@@ -207,7 +201,7 @@ public class TripListFragment extends Fragment {
             itemView.setOnClickListener(this);
         }
 
-        public void bind(Trip trip) {
+        void bind(Trip trip) {
             mTripTitleTextView.setText(trip.getTripName());
             mNumberOfFillUps.setText(String.format("%s %s", Integer.toString(trip.getNumberOfFillUps()), getString(R.string.space_fill_ups)));
             mNumberOFExpenses.setText(String.format("%s %s", Integer.toString(trip.getNumberOfExpenses()), getString(R.string.space_expenses)));

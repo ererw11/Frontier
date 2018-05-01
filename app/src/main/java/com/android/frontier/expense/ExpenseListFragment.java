@@ -48,23 +48,27 @@ public class ExpenseListFragment extends Fragment {
     private static final String ARG_TRIP_ID = "com.android.frontier.expense.trip_id";
 
     @BindView(R.id.expense_recycler_view)
+    private
     RecyclerView mExpenseRecyclerView;
     @BindView(R.id.add_expense_fab)
+    private
     FloatingActionButton mFloatingActionButton;
     @BindView(R.id.expense_list_toolbar)
+    private
     Toolbar mExpenseListToolbar;
     @BindView(R.id.banner_ad_view_expense)
+    private
     AdView mExpenseAdView;
     @BindView(R.id.expense_list_no_logs_linear_layout)
+    private
     LinearLayout mNoExpenseLoggedLinearLayout;
 
-    ArrayList<Expense> expenseList;
+    private ArrayList<Expense> expenseList;
     private String mTripID;
     private ExpenseAdapter mAdapter;
     private Callbacks mCallbacks;
     private FirebaseAuth mFirebaseAuth;
     private FirebaseAuth.AuthStateListener mAuthStateListener;
-    private FirebaseDatabase mFirebaseDatabase;
     private DatabaseReference mDatabaseReference;
 
     public static ExpenseListFragment newInstance(String tripId) {
@@ -93,8 +97,8 @@ public class ExpenseListFragment extends Fragment {
         Log.i(TAG, mTripID);
 
         mFirebaseAuth = FirebaseAuth.getInstance();
-        mFirebaseDatabase = FirebaseDatabase.getInstance();
-        mDatabaseReference = mFirebaseDatabase.getReference(mFirebaseAuth.getUid())
+        FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
+        mDatabaseReference = firebaseDatabase.getReference(mFirebaseAuth.getUid())
                 .child(getString(R.string.trip_details_db_title))
                 .child(mTripID)
                 .child("expenseList");
@@ -248,14 +252,14 @@ public class ExpenseListFragment extends Fragment {
 
     private class ExpenseHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
-        public int position;
+        int position;
         private Expense mExpense;
-        private TextView mItemTextView;
-        private TextView mCategoryTextView;
-        private TextView mPriceTextView;
-        private ImageView mCategoryImageView;
+        private final TextView mItemTextView;
+        private final TextView mCategoryTextView;
+        private final TextView mPriceTextView;
+        private final ImageView mCategoryImageView;
 
-        public ExpenseHolder(View itemView) {
+        ExpenseHolder(View itemView) {
             super(itemView);
             mItemTextView = itemView.findViewById(R.id.expense_item_list_item);
             mCategoryTextView = itemView.findViewById(R.id.expense_category_list_item);
@@ -264,7 +268,7 @@ public class ExpenseListFragment extends Fragment {
             itemView.setOnClickListener(this);
         }
 
-        public void bind(Expense expense) {
+        void bind(Expense expense) {
             mExpense = expense;
             mItemTextView.setText(mExpense.getItem());
             NumberFormat format = NumberFormat.getCurrencyInstance();

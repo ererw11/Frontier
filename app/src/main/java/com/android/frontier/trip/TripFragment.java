@@ -49,28 +49,40 @@ public class TripFragment extends Fragment {
     private static final String ARG_TRIP = "com.android.frontier.trip.trip";
 
     @BindView(R.id.trip_fragment_toolbar)
+    private
     Toolbar mToolbar;
     @BindView(R.id.trip_title_edit_text)
+    private
     EditText mTripTitleEditText;
     @BindView(R.id.add_gas_layout)
+    private
     ConstraintLayout mFillUpLayout;
     @BindView(R.id.add_expenses_layout)
+    private
     ConstraintLayout mExpenseLayout;
     @BindView(R.id.fill_up_count_text_view)
+    private
     TextView mFillUpCountTextView;
     @BindView(R.id.expense_count_text_view)
+    private
     TextView mExpenseCountTextView;
     @BindView(R.id.miles_driven_text_view)
+    private
     TextView mMilesDrivenTextView;
     @BindView(R.id.miles_per_gallon_text_view)
+    private
     TextView mMilesPerGallonTextView;
     @BindView(R.id.gas_cost_text_view)
+    private
     TextView mGasCostTextView;
     @BindView(R.id.price_per_fill_up_text_view)
+    private
     TextView mPricePerFillUp;
     @BindView(R.id.expense_cost_text_view)
+    private
     TextView mExpenseCostTextView;
     @BindView(R.id.cost_per_expense_text_view)
+    private
     TextView mCostPerExpenseTextView;
 
     private Trip mTrip;

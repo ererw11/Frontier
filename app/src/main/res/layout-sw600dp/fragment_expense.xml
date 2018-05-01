@@ -44,7 +44,8 @@
                     android:id="@+id/expense_item"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="@string/item_purchased"/>
+                    android:hint="@string/item_purchased"
+                    android:inputType=""/>
 
             </LinearLayout>
 

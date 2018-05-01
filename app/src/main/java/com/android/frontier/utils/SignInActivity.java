@@ -26,13 +26,13 @@ public class SignInActivity extends AppCompatActivity {
     private static final String TAG = SignInActivity.class.getSimpleName();
 
     @BindView(R.id.sign_in_button)
+    private
     Button signInButton;
 
-    FirebaseAuth mFirebaseAuth;
+    private FirebaseAuth mFirebaseAuth;
 
     public static Intent createIntent(Context context) {
-        Intent intent = new Intent(context, SignInActivity.class);
-        return intent;
+        return new Intent(context, SignInActivity.class);
     }
 
     @Override
@@ -65,7 +65,6 @@ public class SignInActivity extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == RC_SIGN_IN) {
             handleSignInResponse(resultCode, data);
-            return;
         }
     }
 
@@ -77,7 +76,6 @@ public class SignInActivity extends AppCompatActivity {
         if (resultCode == RESULT_OK) {
             startActivity(TripListActivity.tripListIntent(this));
             finish();
-            return;
         } else {
             // Sign In Failed
             if (response == null) {

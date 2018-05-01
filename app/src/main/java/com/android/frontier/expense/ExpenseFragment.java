@@ -77,34 +77,42 @@ public class ExpenseFragment extends Fragment
     private static final int PLACE_AUTOCOMPLETE_REQUEST_CODE = 0;
 
     @BindView(R.id.expense_location)
+    private
     TextView mExpenseLocationTextView;
     @BindView(R.id.expense_item)
+    private
     EditText mExpenseItemEditText;
     @BindView(R.id.expense_price)
+    private
     EditText mExpensePriceEditText;
     @BindView(R.id.expense_date)
+    private
     TextView mExpenseDateTextView;
     @BindView(R.id.expense_category)
+    private
     Spinner mExpenseSpinner;
     @BindView(R.id.share_expense_item_button)
+    private
     ImageButton mShareExpenseButton;
     @BindView(R.id.expense_photo)
+    private
     ImageView mExpenseImageView;
     @BindView(R.id.expense_address)
+    private
     TextView mExpenseAddressTextView;
     @BindView(R.id.save_expense_fab)
+    private
     FloatingActionButton mSaveFloatingActionButton;
     @BindView(R.id.expense_toolbar)
+    private
     Toolbar mExpenseToolbar;
 
     private Expense mExpense;
     private String mPlaceId;
     private Callbacks mCallbacks;
-    private String mTripId;
     private GoogleApiClient mGoogleApiClient;
     private FirebaseAuth mFirebaseAuth;
     private FirebaseAuth.AuthStateListener mAuthStateListener;
-    private FirebaseDatabase mFirebaseDatabase;
     private DatabaseReference mDatabaseReference;
 
     public static ExpenseFragment newExpenseInstance(Expense expense, String tripId) {
@@ -124,7 +132,7 @@ public class ExpenseFragment extends Fragment
 
         mExpense = new Expense();
         mExpense = (Expense) getArguments().getSerializable(ARG_EXPENSE);
-        mTripId = getArguments().getString(ARG_TRIP_ID);
+        String tripId = getArguments().getString(ARG_TRIP_ID);
 
         mGoogleApiClient = new GoogleApiClient
                 .Builder(getContext())
@@ -135,7 +143,7 @@ public class ExpenseFragment extends Fragment
                 .build();
 
         mFirebaseAuth = FirebaseAuth.getInstance();
-        mFirebaseDatabase = FirebaseDatabase.getInstance();
+        FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
         mAuthStateListener = new FirebaseAuth.AuthStateListener() {
             @Override
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
@@ -143,10 +151,10 @@ public class ExpenseFragment extends Fragment
                 TripUtils.confirmSignedIn(getActivity(), user);
             }
         };
-        mDatabaseReference = mFirebaseDatabase.getReference(
+        mDatabaseReference = firebaseDatabase.getReference(
                 mFirebaseAuth.getUid())
                 .child(getString(R.string.trip_details_db_title))
-                .child(mTripId)
+                .child(tripId)
                 .child("expenseList");
     }
 
@@ -260,7 +268,7 @@ public class ExpenseFragment extends Fragment
     }
 
     // Use the Google Place API to locate the location of the Expense
-    public void findPlace() {
+    private void findPlace() {
         try {
             Intent intent =
                     new PlaceAutocomplete.IntentBuilder(PlaceAutocomplete.MODE_OVERLAY)
@@ -275,17 +283,21 @@ public class ExpenseFragment extends Fragment
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (requestCode == PLACE_AUTOCOMPLETE_REQUEST_CODE) {
-            if (resultCode == RESULT_OK) {
-                Place place = PlaceAutocomplete.getPlace(getActivity(), data);
-                mExpenseLocationTextView.setText(place.getName());
-                mExpenseAddressTextView.setText(place.getAddress());
-                mPlaceId = place.getId();
-                Log.i(TAG, "Place: " + place.getName());
-            } else if (resultCode == PlaceAutocomplete.RESULT_ERROR) {
-                Status status = PlaceAutocomplete.getStatus(getActivity(), data);
-                Log.i(TAG, status.getStatusMessage());
-            } else if (resultCode == RESULT_CANCELED) {
-                // The user canceled the operation.
+            switch (resultCode) {
+                case RESULT_OK:
+                    Place place = PlaceAutocomplete.getPlace(getActivity(), data);
+                    mExpenseLocationTextView.setText(place.getName());
+                    mExpenseAddressTextView.setText(place.getAddress());
+                    mPlaceId = place.getId();
+                    Log.i(TAG, "Place: " + place.getName());
+                    break;
+                case PlaceAutocomplete.RESULT_ERROR:
+                    Status status = PlaceAutocomplete.getStatus(getActivity(), data);
+                    Log.i(TAG, status.getStatusMessage());
+                    break;
+                case RESULT_CANCELED:
+                    // The user canceled the operation.
+                    break;
             }
         }
     }
@@ -375,7 +387,7 @@ public class ExpenseFragment extends Fragment
     }
 
     // Using the PlaceId, determine the name of the Location and Address
-    public void getPlaceByIdAndDisplay(final String placeId) {
+    private void getPlaceByIdAndDisplay(final String placeId) {
         if (placeId != null) {
             Places.GeoDataApi.getPlaceById(mGoogleApiClient, placeId)
                     .setResultCallback(new ResultCallback<PlaceBuffer>() {
@@ -392,7 +404,7 @@ public class ExpenseFragment extends Fragment
     }
 
     // Change the Image that shows on the top left depending on the category that is currently selected
-    public void updateImage() {
+    private void updateImage() {
         mExpenseImageView.setImageResource(getCategoryImage(mExpense.getCategory()));
     }
 

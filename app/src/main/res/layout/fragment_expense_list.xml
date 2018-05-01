@@ -19,7 +19,6 @@
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/expense_list_no_logs_header"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/add_an_expense_header"
@@ -27,7 +26,6 @@
                 android:textSize="@dimen/text_size_medium"/>
 
             <TextView
-                android:id="@+id/expense_list_no_logs_message"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/add_an_expense_message"

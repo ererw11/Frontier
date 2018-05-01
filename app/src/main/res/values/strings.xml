@@ -8,18 +8,14 @@
     <string name="add_a_new_trip">Add a new Trip</string>
     <string name="add_an_expense_header">No Expenses Logged</string>
     <string name="add_an_expense_message">Use the + button below to add one now</string>
-    <string name="add_widget">Add widget</string>
-    <string name="appwidget_text">EXAMPLE</string>
     <string name="automotive">Automotive</string>
     <string name="banner_ad_unit_id">ca-app-pub-3940256099942544/6300978111</string>
     <string name="category_image">Category Image</string>
     <string name="click_here_location">Click here to select location</string>
     <string name="cost_per_expense">Cost Per Expense</string>
     <string name="date_example">11/28/2017 05:01 PM</string>
-    <string name="date_picker_title">Date of Fill Up:</string>
     <string name="delete">Delete</string>
     <string name="details">Details</string>
-    <string name="enter_price">Price of Item</string>
     <string name="enter_trip_title">Enter Trip Title</string>
     <string name="entertainment">Entertainment</string>
     <string name="expense_costs">Expense Costs</string>
@@ -45,7 +41,6 @@
     <string name="fill_ups">Fill Ups</string>
     <string name="gallons_not_entered">Gallons Not Entered</string>
     <string name="gas_cost">Gas Cost</string>
-    <string name="gas_station_database_name">gas_station</string>
     <string name="google_places_key">Enter_Google_Place_API_Key</string>
     <string name="item_purchased">Item Purchased</string>
     <string name="location_address">Location Address</string>
@@ -57,17 +52,12 @@
     <string name="miles_per_gallon">Miles Per Gallon</string>
     <string name="most_recent_entries">Most Recent Entries</string>
     <string name="mpg_header">Miles Per Gallon</string>
-    <string name="new_expense">New Expense</string>
-    <string name="new_fill_up">New Fill Up</string>
-    <string name="new_trip">New Trip</string>
     <string name="no_internet_connection">You have no internet connection</string>
     <string name="no_item_entered">No Item Entered</string>
-    <string name="no_location_select">No location selected</string>
     <string name="no_location_selected">No Location Selected</string>
     <string name="no_mile_per_gallon">--</string>
     <string name="no_miles_yet">--.--</string>
-    <string name="no_price_yet">$ —.--</string>
-    <string name="no_trip_data">There is no trip data logged yet,\n why not log something now?</string>
+    <string name="no_price_yet">$ —.—</string>
     <string name="no_trip_title_expense">Please name trip before adding an expense</string>
     <string name="no_trip_title_fill_up">Please name trip before adding a fill Up</string>
     <string name="no_trips_logged">No Trips Logged</string>
@@ -82,13 +72,9 @@
     <string name="save_successful">Fill Up Successfully Saved</string>
     <string name="select_category">Select Category</string>
     <string name="send_report">Send Report Via</string>
-    <string name="share">Share</string>
     <string name="share_button_text">Share</string>
-    <string name="share_this_trip">Share This Trip</string>
     <string name="sign_in">Sign In</string>
     <string name="sign_in_was_cancelled">Sign in was cancelled</string>
-    <string name="signed_in_as">Signed In As </string>
-    <string name="simple_date_and_time">MM/dd/yyyy HH:mm</string>
     <string name="snacks">Snacks</string>
     <string name="space_expenses">Expenses</string>
     <string name="space_fill_ups">FillUps</string>
@@ -99,8 +85,6 @@
     <string name="touch_the_button_below_to_add_a_new_one">Touch the + button below to add a new one</string>
     <string name="trip_details">Trip Details</string>
     <string name="trip_details_db_title">tripDetails</string>
-    <string name="trip_key_db">tripKey</string>
-    <string name="trip_report">As of %1$s, %2$s has spent $%3$s.  This includes %4$s fill-ups for %5$s averaging %6$s mpg.  Also, %7$s expenses have been logged totaling %8$s.</string>
     <string name="unknown_error">Unknown Error!</string>
 
 </resources>

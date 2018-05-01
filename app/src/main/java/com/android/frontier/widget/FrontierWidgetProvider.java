@@ -24,8 +24,8 @@ import static com.android.frontier.utils.TripUtils.turnStringToCash;
  */
 public class FrontierWidgetProvider extends AppWidgetProvider {
 
-    static void updateAppWidget(Context context, AppWidgetManager appWidgetManager,
-                                @Nullable FillUp fillUp, @Nullable String locationName, @Nullable Expense expense, int appWidgetId) {
+    private static void updateAppWidget(Context context, AppWidgetManager appWidgetManager,
+                                        @Nullable FillUp fillUp, @Nullable String locationName, @Nullable Expense expense, int appWidgetId) {
 
         // Construct the RemoteViews object
         RemoteViews views = new RemoteViews(context.getPackageName(), R.layout.frontier_widget_provider);

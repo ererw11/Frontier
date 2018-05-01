@@ -9,8 +9,7 @@ import com.android.frontier.utils.SingleFragmentActivity;
 public class TripListActivity extends SingleFragmentActivity {
 
     public static Intent tripListIntent(Context packageContext) {
-        Intent intent = new Intent(packageContext, TripListActivity.class);
-        return intent;
+        return new Intent(packageContext, TripListActivity.class);
     }
 
     @Override

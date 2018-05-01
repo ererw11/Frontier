@@ -53,14 +53,19 @@ public class FillUpListFragment extends Fragment
     private static final String ARG_TRIP_ID = "com.android.frontier.fill_up.trip_id";
 
     @BindView(R.id.fill_up_recycler_view)
+    private
     RecyclerView mFillUpRecyclerView;
     @BindView(R.id.add_fill_up_fab)
+    private
     FloatingActionButton mFloatingActionButton;
     @BindView(R.id.fill_up_list_toolbar)
+    private
     Toolbar mFillUpListToolbar;
     @BindView(R.id.banner_ad_view_fill_up)
+    private
     AdView mFillUpAdView;
     @BindView(R.id.fill_up_list_no_logs_linear_layout)
+    private
     LinearLayout mNoFillUpsLoggedLinearLayout;
 
     private ArrayList<FillUp> fillUpList;
@@ -70,7 +75,6 @@ public class FillUpListFragment extends Fragment
     private GoogleApiClient mGoogleApiClient;
     private FirebaseAuth mFirebaseAuth;
     private FirebaseAuth.AuthStateListener mAuthStateListener;
-    private FirebaseDatabase mFirebaseDatabase;
     private DatabaseReference mDatabaseReference;
 
     public static FillUpListFragment newInstance(String tripId) {
@@ -107,8 +111,8 @@ public class FillUpListFragment extends Fragment
                 .build();
 
         mFirebaseAuth = FirebaseAuth.getInstance();
-        mFirebaseDatabase = FirebaseDatabase.getInstance();
-        mDatabaseReference = mFirebaseDatabase.getReference(
+        FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
+        mDatabaseReference = firebaseDatabase.getReference(
                 mFirebaseAuth.getUid())
                 .child(getString(R.string.trip_details_db_title))
                 .child(mTripId)
@@ -280,13 +284,13 @@ public class FillUpListFragment extends Fragment
 
     private class FillUpHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
-        public int position;
-        TextView mLocationTextView;
-        TextView mDateTextView;
-        TextView mFillUpCostTextView;
+        int position;
+        final TextView mLocationTextView;
+        final TextView mDateTextView;
+        final TextView mFillUpCostTextView;
         private FillUp mFillUp;
 
-        public FillUpHolder(View itemView) {
+        FillUpHolder(View itemView) {
             super(itemView);
             mLocationTextView = itemView.findViewById(R.id.fill_up_location_list_item);
             mDateTextView = itemView.findViewById(R.id.fill_up_date_list_item);
@@ -294,7 +298,7 @@ public class FillUpListFragment extends Fragment
             itemView.setOnClickListener(this);
         }
 
-        public void bind(FillUp fillUp) {
+        void bind(FillUp fillUp) {
             mFillUp = fillUp;
             if (mFillUp.getPlaceId() != null) {
                 getPlaceNameByIdAndDisplay(mFillUp.getPlaceId());
@@ -305,7 +309,7 @@ public class FillUpListFragment extends Fragment
             mFillUpCostTextView.setText(TripUtils.getTotalCost(mFillUp));
         }
 
-        public void getPlaceNameByIdAndDisplay(String placeId) {
+        void getPlaceNameByIdAndDisplay(String placeId) {
             Places.GeoDataApi.getPlaceById(mGoogleApiClient, placeId)
                     .setResultCallback(new ResultCallback<PlaceBuffer>() {
                         @Override
@@ -327,7 +331,7 @@ public class FillUpListFragment extends Fragment
         }
     }
 
-    protected class FillUpAdapter extends RecyclerView.Adapter<FillUpHolder> {
+    class FillUpAdapter extends RecyclerView.Adapter<FillUpHolder> {
 
         @Override
         public FillUpHolder onCreateViewHolder(ViewGroup parent, int viewType) {

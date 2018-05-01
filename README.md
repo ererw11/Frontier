@@ -1,7 +1,7 @@
 # Frontier
 Conveniently organize expenses, gas purchases, and mileage your road trips with Frontier.
 
-Frontier is my Capstone Project for the Udacity Developer Nanodegree.  With Frontier you can track your gas and expense purchases on seperate road trips.
+Frontier is my Capstone Project for the Udacity Developer Nanodegree.  With Frontier you can track your gas and expense purchases on separate road trips.
 
 ![trip details](https://user-images.githubusercontent.com/17730061/37560550-98ee6a42-2a08-11e8-8da3-00634f7d58d2.png)
 ![expenses](https://user-images.githubusercontent.com/17730061/37560549-95b05804-2a08-11e8-8e18-cb36928f839d.png)

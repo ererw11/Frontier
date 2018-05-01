@@ -12,11 +12,11 @@ import com.android.frontier.fill_up.FillUp;
 
 public class FrontierActionService extends IntentService {
 
-    public static final String ACTION_UPDATE_WIDGET_FILL_UP = "com.android.frontier.widget.update_fill_up";
-    public static final String EXTRA_FILL_UP = "com.android.frontier.extra.fill_up";
-    public static final String EXTRA_LOCATION_NAME = "com.android.frontier.extra.location_name";
-    public static final String ACTION_UPDATE_WIDGET_EXPENSE = "com.android.frontier.widget.update_expense";
-    public static final String EXTRA_EXPENSE = "com.android.frontier.extra.expense";
+    private static final String ACTION_UPDATE_WIDGET_FILL_UP = "com.android.frontier.widget.update_fill_up";
+    private static final String EXTRA_FILL_UP = "com.android.frontier.extra.fill_up";
+    private static final String EXTRA_LOCATION_NAME = "com.android.frontier.extra.location_name";
+    private static final String ACTION_UPDATE_WIDGET_EXPENSE = "com.android.frontier.widget.update_expense";
+    private static final String EXTRA_EXPENSE = "com.android.frontier.extra.expense";
 
     public FrontierActionService() {
         super("FrontierActionService");

@@ -2,7 +2,7 @@ package com.android.frontier.trip;
 
 import java.io.Serializable;
 
-public class Trip implements Serializable {
+class Trip implements Serializable {
 
     private String tripName;
     private String id;

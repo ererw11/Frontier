@@ -10,7 +10,7 @@ import com.android.frontier.utils.SingleFragmentActivity;
 public class ExpenseListActivity extends SingleFragmentActivity
         implements ExpenseListFragment.Callbacks, ExpenseFragment.Callbacks {
 
-    public static final String EXTRA_TRIP_ID =
+    private static final String EXTRA_TRIP_ID =
             "com.android.frontier.expense.trip_id";
 
     public static Intent expenseListIntent(Context packageContext, String tripId) {

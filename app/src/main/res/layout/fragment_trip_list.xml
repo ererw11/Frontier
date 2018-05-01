@@ -19,7 +19,6 @@
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/trip_list_no_logs_header"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/no_trips_logged"
@@ -27,7 +26,6 @@
                 android:textSize="@dimen/text_size_medium"/>
 
             <TextView
-                android:id="@+id/trip_list_no_logs_message"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/touch_the_button_below_to_add_a_new_one"/>

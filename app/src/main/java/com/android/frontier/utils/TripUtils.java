@@ -58,8 +58,7 @@ public class TripUtils {
             stringCost = "0.0";
         }
         double stringDouble = Double.parseDouble(stringCost);
-        String moneyString = format.format(stringDouble);
-        return moneyString;
+        return format.format(stringDouble);
     }
 
     // Formats the Date to MM/DD/YYYY 12:00 AM
